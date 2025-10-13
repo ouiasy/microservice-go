@@ -1,0 +1,23 @@
+syntax = "proto3";
+package movie.v1;
+
+option go_package = "github.com/ouiasy/microservice-go/api/gen/go";
+
+import "metadata.proto";
+
+service MovieService {
+  rpc GetMovieDetails(GetMovieDetailsRequest) returns (GetMovieDetailsResponse);
+}
+
+message MovieDetails {
+  double rating = 1;
+  metadata.v1.Metadata metadata = 2;
+}
+
+message GetMovieDetailsRequest {
+  string movie_id = 1;
+}
+
+message GetMovieDetailsResponse {
+  MovieDetails movie_details = 1;
+}

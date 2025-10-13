@@ -1,0 +1,29 @@
+# docker-compose.yml
+services:
+  metadata:
+    image: golang:alpine3.22
+    working_dir: /app
+    volumes:
+      - ./metadata:/app
+    ports:
+      - "8081:8081"
+    command: go run cmd/main.go
+
+  rating:
+    image: golang:alpine3.22
+    working_dir: /app
+    volumes:
+      - ./rating:/app
+    ports:
+      - "8082:8082"
+    command: go run cmd/main.go
+
+  movie:
+    image: golang:alpine3.22
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8083:8083"
+    command: go run movie/cmd/main.go
+
