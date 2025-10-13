@@ -4,7 +4,7 @@
 // 	protoc        v3.21.12
 // source: movie.proto
 
-package _go
+package gen
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -174,7 +174,7 @@ const file_movie_proto_rawDesc = "" +
 	"\x17GetMovieDetailsResponse\x12;\n" +
 	"\rmovie_details\x18\x01 \x01(\v2\x16.movie.v1.MovieDetailsR\fmovieDetails2f\n" +
 	"\fMovieService\x12V\n" +
-	"\x0fGetMovieDetails\x12 .movie.v1.GetMovieDetailsRequest\x1a!.movie.v1.GetMovieDetailsResponseB.Z,github.com/ouiasy/microservice-go/api/gen/gob\x06proto3"
+	"\x0fGetMovieDetails\x12 .movie.v1.GetMovieDetailsRequest\x1a!.movie.v1.GetMovieDetailsResponseB.Z,github.com/ouiasy/microservice-go/_proto/genb\x06proto3"
 
 var (
 	file_movie_proto_rawDescOnce sync.Once

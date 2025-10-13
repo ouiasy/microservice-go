@@ -4,7 +4,7 @@
 // 	protoc        v3.21.12
 // source: rating.proto
 
-package _go
+package gen
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -241,7 +241,7 @@ const file_rating_proto_rawDesc = "" +
 	"\x11PutRatingResponse2\xbd\x01\n" +
 	"\rRatingService\x12d\n" +
 	"\x13GetAggregatedRating\x12%.rating.v1.GetAggregatedRatingRequest\x1a&.rating.v1.GetAggregatedRatingResponse\x12F\n" +
-	"\tPutRating\x12\x1b.rating.v1.PutRatingRequest\x1a\x1c.rating.v1.PutRatingResponseB.Z,github.com/ouiasy/microservice-go/api/gen/gob\x06proto3"
+	"\tPutRating\x12\x1b.rating.v1.PutRatingRequest\x1a\x1c.rating.v1.PutRatingResponseB.Z,github.com/ouiasy/microservice-go/_proto/genb\x06proto3"
 
 var (
 	file_rating_proto_rawDescOnce sync.Once

@@ -4,7 +4,7 @@
 // 	protoc        v3.21.12
 // source: metadata.proto
 
-package _go
+package gen
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -286,7 +286,7 @@ const file_metadata_proto_rawDesc = "" +
 	"metadataId2\xb5\x01\n" +
 	"\x0fMetadataService\x12P\n" +
 	"\vGetMetadata\x12\x1f.metadata.v1.GetMetadataRequest\x1a .metadata.v1.GetMetadataResponse\x12P\n" +
-	"\vPutMetadata\x12\x1f.metadata.v1.PutMetadataRequest\x1a .metadata.v1.PutMetadataResponseB.Z,github.com/ouiasy/microservice-go/api/gen/gob\x06proto3"
+	"\vPutMetadata\x12\x1f.metadata.v1.PutMetadataRequest\x1a .metadata.v1.PutMetadataResponseB.Z,github.com/ouiasy/microservice-go/_proto/genb\x06proto3"
 
 var (
 	file_metadata_proto_rawDescOnce sync.Once

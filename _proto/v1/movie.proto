@@ -1,7 +1,7 @@
 syntax = "proto3";
 package movie.v1;
 
-option go_package = "github.com/ouiasy/microservice-go/api/gen/go";
+option go_package = "github.com/ouiasy/microservice-go/_proto/gen";
 
 import "metadata.proto";
 

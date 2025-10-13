@@ -1,7 +1,7 @@
 syntax = "proto3";
 package rating.v1;
 
-option go_package = "github.com/ouiasy/microservice-go/api/gen/go";
+option go_package = "github.com/ouiasy/microservice-go/_proto/gen";
 
 service RatingService {
   rpc GetAggregatedRating(GetAggregatedRatingRequest) returns (GetAggregatedRatingResponse);

@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: rating.proto
 
-package _go
+package gen
 
 import (
 	context "context"

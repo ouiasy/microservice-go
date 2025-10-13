@@ -2,7 +2,7 @@ syntax="proto3";
 
 package metadata.v1;
 
-option go_package = "github.com/ouiasy/microservice-go/api/gen/go";
+option go_package = "github.com/ouiasy/microservice-go/_proto/gen";
 
 service MetadataService {
   rpc GetMetadata(GetMetadataRequest) returns (GetMetadataResponse);
