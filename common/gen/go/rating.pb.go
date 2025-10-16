@@ -24,7 +24,7 @@ const (
 type GetAggregatedRatingRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RecordId      string                 `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"record_id,omitempty"`
-	RecordType    int32                  `protobuf:"varint,2,opt,name=record_type,json=recordType,proto3" json:"record_type,omitempty"`
+	RecordType    string                 `protobuf:"bytes,2,opt,name=record_type,json=recordType,proto3" json:"record_type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -66,11 +66,11 @@ func (x *GetAggregatedRatingRequest) GetRecordId() string {
 	return ""
 }
 
-func (x *GetAggregatedRatingRequest) GetRecordType() int32 {
+func (x *GetAggregatedRatingRequest) GetRecordType() string {
 	if x != nil {
 		return x.RecordType
 	}
-	return 0
+	return ""
 }
 
 type GetAggregatedRatingResponse struct {
@@ -228,7 +228,7 @@ const file_rating_proto_rawDesc = "" +
 	"\frating.proto\x12\trating.v1\"Z\n" +
 	"\x1aGetAggregatedRatingRequest\x12\x1b\n" +
 	"\trecord_id\x18\x01 \x01(\tR\brecordId\x12\x1f\n" +
-	"\vrecord_type\x18\x02 \x01(\x05R\n" +
+	"\vrecord_type\x18\x02 \x01(\tR\n" +
 	"recordType\"@\n" +
 	"\x1bGetAggregatedRatingResponse\x12!\n" +
 	"\frating_value\x18\x01 \x01(\x01R\vratingValue\"\x8c\x01\n" +

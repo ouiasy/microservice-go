@@ -1,22 +1,41 @@
 # docker-compose.yml
 services:
+  # Consulサーバー
+  consul:
+    image: hashicorp/consul:latest
+    container_name: consul
+    ports:
+      - "8500:8500"  # HTTP API & Web UI
+      - "8600:8600/udp"  # DNS
+    command: agent -server -ui -bootstrap-expect=1 -client=0.0.0.0
+    networks:
+      - app-network
+
   metadata:
     image: golang:alpine3.22
     working_dir: /app
     volumes:
-      - ./metadata:/app
+      - .:/app
     ports:
       - "8081:8081"
-    command: go run cmd/main.go
+    command: go run metadata/cmd/main.go
+    depends_on:
+      - consul
+    networks:
+      - app-network
 
   rating:
     image: golang:alpine3.22
     working_dir: /app
     volumes:
-      - ./rating:/app
+      - .:/app
     ports:
       - "8082:8082"
-    command: go run cmd/main.go
+    command: go run rating/cmd/main.go
+    depends_on:
+      - consul
+    networks:
+      - app-network
 
   movie:
     image: golang:alpine3.22
@@ -26,4 +45,11 @@ services:
     ports:
       - "8083:8083"
     command: go run movie/cmd/main.go
+    depends_on:
+      - consul
+    networks:
+      - app-network
 
+networks:
+  app-network:
+    driver: bridge

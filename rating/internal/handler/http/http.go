@@ -8,17 +8,17 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/ouiasy/microservice-go/rating/internal/controller/rating"
+	"github.com/ouiasy/microservice-go/rating/internal/controller"
 	"github.com/ouiasy/microservice-go/rating/pkg/model"
 )
 
 // Handler defines a rating service controller.
 type Handler struct {
-	ctrl *rating.Controller
+	ctrl *controller.Controller
 }
 
 // New creates a new rating service HTTP handler.
-func New(ctrl *rating.Controller) *Handler {
+func New(ctrl *controller.Controller) *Handler {
 	return &Handler{ctrl}
 }
 
@@ -39,7 +39,7 @@ func (h *Handler) Handle(w http.ResponseWriter, req *http.Request) {
 	switch req.Method {
 	case http.MethodGet:
 		v, err := h.ctrl.GetAggregatedRating(req.Context(), recordID, recordType)
-		if err != nil && errors.Is(err, rating.ErrNotFound) {
+		if err != nil && errors.Is(err, controller.ErrNotFound) {
 			w.WriteHeader(http.StatusNotFound)
 			return
 		}

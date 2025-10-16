@@ -2,20 +2,27 @@ package main
 
 import (
 	"log"
-	"net/http"
+	"net"
 
-	"github.com/ouiasy/microservice-go/rating/internal/controller/rating"
-	httphandler "github.com/ouiasy/microservice-go/rating/internal/handler/http"
+	gen "github.com/ouiasy/microservice-go/common/gen/go"
+	grpcAppState "github.com/ouiasy/microservice-go/rating/internal/handler/grpc"
 	"github.com/ouiasy/microservice-go/rating/internal/repository/memory"
+	"google.golang.org/grpc"
 )
 
 func main() {
 	log.Println("Starting the rating service")
 	repo := memory.New()
-	ctrl := rating.New(repo)
-	h := httphandler.New(ctrl)
-	http.Handle("/rating", http.HandlerFunc(h.Handle))
-	if err := http.ListenAndServe(":8082", nil); err != nil {
-		panic(err)
+
+	s := grpcAppState.NewAppState(repo)
+	listener, err := net.Listen("tcp", "localhost:8082")
+	if err != nil {
+		log.Fatalf("failed to listen: %v", err)
+	}
+	server := grpc.NewServer()
+	gen.RegisterRatingServiceServer(server, s)
+
+	if err := server.Serve(listener); err != nil {
+		log.Fatalf("failed to serve: %v", err)
 	}
 }

@@ -4,10 +4,10 @@ import (
 	"log"
 	"net"
 
+	gen "github.com/ouiasy/microservice-go/common/gen/go"
 	"github.com/ouiasy/microservice-go/metadata/internal/controller"
 	grpcHandler "github.com/ouiasy/microservice-go/metadata/internal/handler/grpc"
 	"github.com/ouiasy/microservice-go/metadata/internal/repository/memory"
-	gen "github.com/ouiasy/microservice/_proto/gen/go"
 	"google.golang.org/grpc"
 )
 

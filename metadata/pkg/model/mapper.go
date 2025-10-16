@@ -1,7 +1,7 @@
 package model
 
 import (
-	gen "github.com/ouiasy/microservice/_proto/gen/go"
+	gen "github.com/ouiasy/microservice-go/common/gen/go"
 )
 
 // MetadataToProto converts a Metadata struct into a

@@ -6,16 +6,16 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/ouiasy/microservice-go/movie/internal/controller/movie"
+	"github.com/ouiasy/microservice-go/movie/internal/controller"
 )
 
 // Handler defines a movie handler.
 type Handler struct {
-	ctrl *movie.Controller
+	ctrl *controller.Controller
 }
 
 // New creates a new movie HTTP handler.
-func New(ctrl *movie.Controller) *Handler {
+func New(ctrl *controller.Controller) *Handler {
 	return &Handler{ctrl}
 }
 
@@ -23,7 +23,7 @@ func New(ctrl *movie.Controller) *Handler {
 func (h *Handler) GetMovieDetails(w http.ResponseWriter, req *http.Request) {
 	id := req.FormValue("id")
 	details, err := h.ctrl.Get(req.Context(), id)
-	if err != nil && errors.Is(err, movie.ErrNotFound) {
+	if err != nil && errors.Is(err, controller.ErrNotFound) {
 		w.WriteHeader(http.StatusNotFound)
 		return
 	} else if err != nil {

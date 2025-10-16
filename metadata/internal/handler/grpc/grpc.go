@@ -4,9 +4,9 @@ import (
 	"context"
 	"errors"
 
+	gen "github.com/ouiasy/microservice-go/common/gen/go"
 	"github.com/ouiasy/microservice-go/metadata/internal/controller"
 	"github.com/ouiasy/microservice-go/metadata/pkg/model"
-	gen "github.com/ouiasy/microservice/_proto/gen/go"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
